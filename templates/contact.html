@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact-text">
+                        <h2>Contact Info</h2>
+                        <p>{{ info.description }}</p>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="c-o">Address:</td>
+                                    <td>{{ info.address }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="c-o">Phone:</td>
+                                    <td>{{ info.phone_number }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="c-o">Email:</td>
+                                    <td>{{ info.email }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="c-o">Extra:</td>
+                                    <td>{{ info.extra_phone_number }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-7 offset-lg-1">
+                    <form action="{% url 'contact_url' %}" method="post"  class="contact-form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="text" placeholder="Your Name" name="full_name" >
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" placeholder="Your Email" name="email" >
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea placeholder="Your Message" name="message" ></textarea>
+                                <button type="submit">Submit Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+{% endblock %}
